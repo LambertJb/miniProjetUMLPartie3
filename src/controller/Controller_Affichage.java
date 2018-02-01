@@ -7,7 +7,7 @@ public class Controller_Affichage {
 	private I_Catalogue catalogue;
 
 	public Controller_Affichage() {
-		catalogue = ControllerInstance.createInstance();
+		this.catalogue = this.catalogue = ControllerInstance.createInstance();
 	}
 
 	public String affichageCatalogue() {

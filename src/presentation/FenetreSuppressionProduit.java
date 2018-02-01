@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import controller.ControllerCatalogue;
 import controller.Controller_Creation_Suppression;
 
 public class FenetreSuppressionProduit extends JFrame implements ActionListener {
@@ -30,8 +31,8 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		Controller_Creation_Suppression controller_creation_suppression = new Controller_Creation_Suppression();
-		controller_creation_suppression.supprimerProduit(combo.getSelectedItem().toString());
+		ControllerCatalogue controller = new ControllerCatalogue();
+		controller.supprimer(combo.getSelectedItem().toString());
 		this.dispose();
 	}
 

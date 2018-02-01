@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import controller.ControllerCatalogue;
 import controller.Controller_Achat_Vente;
 import controller.Controller_Affichage;
 import controller.Controller_Creation_Suppression;
@@ -30,7 +31,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener, WindowL
 		JPanel panQuitter = new JPanel();
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new FlowLayout());
-		btAfficher = new JButton("Quantités en stock");
+		btAfficher = new JButton("Quantitï¿½s en stock");
 		btNouveauProduit = new JButton("Nouveau Produit");
 		btSupprimerProduit = new JButton("Supprimer Produit");
 		// btNouvelleCategorie = new JButton("Nouvelle Categorie");
@@ -74,35 +75,28 @@ public class FenetrePrincipale extends JFrame implements ActionListener, WindowL
 		 * fonctionnera, il faudra bien sï¿½r rï¿½cupï¿½rer les noms des
 		 * produits dans le Catalogue
 		 */
-		String[] tabProduits = new String[] {};
+
 		/* Mï¿½me chose pour tabCategories (partie 4) */
 		// String[] tabCategories = new String[] {"Bio", "Luxe" };
+		
+		String[] tabProduits = new String[] {};
 
+		ControllerCatalogue controller = new ControllerCatalogue();
+		
 		if (e.getSource() == btAfficher) {
-			Controller_Affichage controller_affichage = new Controller_Affichage();
-			new FenetreAffichage(controller_affichage.affichageCatalogue());
+			controller.fenetreAfficher();
 		}
-		if (e.getSource() == btNouveauProduit)
-			// new FenetreNouveauProduit(tabCategories);
-			new FenetreNouveauProduit();
+		if (e.getSource() == btNouveauProduit) {
+			controller.fenetreNouveau();
+		}
 		if (e.getSource() == btSupprimerProduit) {
-			Controller_Creation_Suppression controller_creation_suppression = new Controller_Creation_Suppression();
-			tabProduits = controller_creation_suppression.demandeSuppression();
-			new FenetreSuppressionProduit(tabProduits);
+			controller.fenetreSupprimer(tabProduits);
 		}
-		// if (e.getSource() == btNouvelleCategorie)
-		// new FenetreNouvelleCategorie();
-		// if (e.getSource() == btSupprimerCategorie)
-		// new FenetreSuppressionCategorie(tabCategories);
 		if (e.getSource() == btAchat) {
-			Controller_Achat_Vente controller_achat_vente = new Controller_Achat_Vente();
-			tabProduits = controller_achat_vente.demandeAchats();
-			new FenetreAchat(tabProduits);
+			controller.acheter(tabProduits);
 		}
 		if (e.getSource() == btVente) {
-			Controller_Achat_Vente controller_achat_vente = new Controller_Achat_Vente();
-			tabProduits = controller_achat_vente.demandeAchats();
-			new FenetreVente(tabProduits);
+			controller.vendre(tabProduits);
 		}
 		if (e.getSource() == btQuitter) {
 			System.out.println("Au revoir");

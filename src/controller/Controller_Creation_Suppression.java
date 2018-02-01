@@ -7,7 +7,7 @@ public class Controller_Creation_Suppression {
 	private I_Catalogue catalogue;
 
 	public Controller_Creation_Suppression() {
-		catalogue = ControllerInstance.createInstance();
+		this.catalogue = this.catalogue = ControllerInstance.createInstance();
 	}
 
 	public String[] demandeSuppression() {

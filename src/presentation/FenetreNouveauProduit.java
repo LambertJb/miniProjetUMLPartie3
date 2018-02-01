@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import controller.ControllerCatalogue;
 import controller.Controller_Creation_Suppression;
 
 public class FenetreNouveauProduit extends JFrame implements ActionListener {
@@ -49,8 +50,10 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		Controller_Creation_Suppression controller_creation_suppression = new Controller_Creation_Suppression();
-		controller_creation_suppression.ajouterProduit(txtNom.getText(), txtPrixHT.getText(), txtQte.getText());
+		//Controller_Creation_Suppression controller_creation_suppression = new Controller_Creation_Suppression();
+		//controller_creation_suppression.ajouterProduit(txtNom.getText(), txtPrixHT.getText(), txtQte.getText());
+		ControllerCatalogue controller = new ControllerCatalogue();
+		controller.ajouter(txtNom.getText(),txtPrixHT.getText(),txtQte.getText());
 		this.dispose();
 	}
 
