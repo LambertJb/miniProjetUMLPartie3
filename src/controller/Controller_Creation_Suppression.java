@@ -1,8 +1,6 @@
 package controller;
 
-import metier.Catalogue;
 import metier.I_Catalogue;
-import metier.Produit;
 
 public class Controller_Creation_Suppression {
 

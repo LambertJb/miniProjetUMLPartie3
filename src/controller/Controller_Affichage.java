@@ -1,6 +1,5 @@
 package controller;
 
-import metier.Catalogue;
 import metier.I_Catalogue;
 
 public class Controller_Affichage {
